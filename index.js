@@ -19,8 +19,3 @@ for(const file of commandFiles) {
   const command = require(`./commands/${file}`);
   client.commands.set(command.name, command);
 }
-
-
-const websocket = require('./websocket.js');
-const web = new websocket();
-web.online();
