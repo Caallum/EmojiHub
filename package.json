@@ -6,7 +6,9 @@
   "dependencies": {
     "discord.js": "^12.5.3",
     "dotenv": "^9.0.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.9",
+    "pify": "^5.0.0"
   },
   "devDependencies": {},
   "scripts": {
