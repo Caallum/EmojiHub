@@ -5,6 +5,10 @@ module.exports = {
   name: 'help',
   description: 'Shows a help menu',
   async run(message, args, client) {
+    if(await client.db.get(`disabled.help-${message.guild.id}`)) {
+      return message.inlineReply(`This command is disabled for this server!`)
+    }
+    
     let embed1 = new MessageEmbed()
       .setTitle('Help Menu')
       .setColor('YELLOW')

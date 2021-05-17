@@ -13,9 +13,3 @@ for(const file of eventFiles) {
   const eventName = file.split('.')[0];
   client.on(eventName, event.bind(null, client));
 }
-
-const commandFiles = readdirSync('./commands').filter(file => file.endsWith('.js'));
-for(const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  client.commands.set(command.name, command);
-}
