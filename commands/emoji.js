@@ -17,16 +17,19 @@ module.exports = {
       if(parseEmoji.id) {
         const extension = parseEmoji.animated ? '.gif' : '.png';
         const url = `https://cdn.discordapp.com/emojis/${parseEmoji.id + extension}`;
-        message.guild.emojis.create(url, parseEmoji.name);
-        
-        addedEmojis.push(parseEmoji);
+        message.guild.emojis.create(url, parseEmoji.name)
+        .then(emoji => {
+          addedEmojis.push(emoji);
+        })
       }
     }
     
     if(addedEmojis.length == 0) return;
-    message.inlineReply(`Successfully added ${addedEmojis.length} emojis!`);
-    addedEmojis.forEach(emoji => {
-      message.react(emoji.id);
+    message.inlineReply(`Successfully added ${addedEmojis.length} emojis!`)
+    .then(async (msg) => {
+      await addedEmojis.forEach(emoji => {
+        msg.react(emoji.id)
+      })
     })
   }
 }
