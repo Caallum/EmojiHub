@@ -13,11 +13,12 @@ module.exports = {
       .setTitle('Help Menu')
       .setColor('YELLOW')
       .setFooter('Emoji Hub', client.user.displayAvatarURL({ dynamic: true, format: 'png' }))
+      .setDescription(`To invite Emoji Hub [Click Here](https://discord.com/api/oauth2/authorize?client_id=843524483833921567&permissions=1073810496&scope=bot)`)
       .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true, format: 'png' }));
       
     client.commands.forEach(cmd => {
       if(cmd.description && cmd.name) {
-        embed1.addField(`**${cmd.name}**`, cmd.description)
+        embed1.addField(`\`e!${cmd.name}\``, cmd.description)
       }
     });
     

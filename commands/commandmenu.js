@@ -13,7 +13,7 @@ module.exports = {
     if(!guild) return message.inlineReply('An error has occured! Please try again later');
     
     let member = await guild.members.fetch(message.author.id);
-    if(!member) return message.inlineReply('You do not have permission to do that!');;
+    if(!member) return message.inlineReply('You do not have permission to do that!');
     
     if(!member.roles.cache.has(staffRole) && !member.roles.cache.has(devRole) && !member.roles.cache.has(adminRole)) return message.inlineReply('You do not have permission to do that!');
     

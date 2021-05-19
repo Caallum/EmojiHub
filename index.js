@@ -13,3 +13,5 @@ for(const file of eventFiles) {
   const eventName = file.split('.')[0];
   client.on(eventName, event.bind(null, client));
 }
+
+require('./websocket.js');

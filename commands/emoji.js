@@ -12,24 +12,19 @@ module.exports = {
     let addedEmojis = [];
     
     for(const rawEmoji of args) {
-      const parseEmoji = Util.parseEmoji(rawEmoji);
+      const parseEmoji = await Util.parseEmoji(rawEmoji);
       
       if(parseEmoji.id) {
         const extension = parseEmoji.animated ? '.gif' : '.png';
         const url = `https://cdn.discordapp.com/emojis/${parseEmoji.id + extension}`;
         message.guild.emojis.create(url, parseEmoji.name)
-        .then(emoji => {
-          addedEmojis.push(emoji);
-        })
-      }
+        addedEmojis.push(parseEmoji.id);
+      } else return message.inlineReply('Something went wrong..');
     }
     
-    if(addedEmojis.length == 0) return;
-    message.inlineReply(`Successfully added ${addedEmojis.length} emojis!`)
-    .then(async (msg) => {
-      await addedEmojis.forEach(emoji => {
-        msg.react(emoji.id)
-      })
-    })
+    if(addedEmojis.length <= 0) return message.inlineReply('Something went wrong...')
+    message.channel.send(`Successfully added ${addedEmojis.length} emojis!`)
+    
+    
   }
 }
