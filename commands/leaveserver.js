@@ -4,7 +4,6 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'server',
-  description: 'Allows a bot developer to find the bot in a specific server',
   async run(message, args, client) {
     let guild = client.guilds.cache.get('843875869188423761');
     if(!guild) return message.inlineReply('An error has occured! Please try again later');

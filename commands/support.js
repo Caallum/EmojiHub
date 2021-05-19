@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'support',
-  // description: 'Not released yet',
+ description: 'Not released yet',
   async run(message, args, client) {
     if(await client.db.get(`disabled.support-${message.guild.id}`)) return message.inlineReply('That command is disabled for this server!');
     

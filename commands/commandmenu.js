@@ -6,7 +6,6 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'command-menu',
-  description: 'Allows a support member to enable or disable a command in a server',
   aliases: ['commands', 'command-enable', 'command-disable'],
   async run(message, args, client) {
     let guild = client.guilds.cache.get('843875869188423761');
